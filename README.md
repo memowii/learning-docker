@@ -34,4 +34,6 @@ Docker es ligero y rápido. Proporciona una alternativa viable y rentable a las 
 
 ## Arquitectura de Docker
 
-Docker utiliza una arquitectura cliente-servidor. El cliente de Docker habla con el demonio de Docker, que hace el trabajo pesado de compilar, ejecutar y distribuir sus contenedores de Docker. El cliente y el demonio pueden ejecutarse en el mismo sistema, o se puede conectar un cliente de Docker a un demonio de Docker remoto. El cliente y el demonio de Docker se comunican mediante una API REST, a través de sockets UNIX o una interfaz de red. Otro cliente de Docker es Docker Compose, que le permite trabajar con aplicaciones que constan de un conjunto de contenedores.
+Docker utiliza una arquitectura cliente-servidor. El cliente de Docker habla con el demonio de Docker, que hace el trabajo pesado de compilar, ejecutar y distribuir los contenedores. El cliente y el demonio pueden ejecutarse en el mismo sistema, o  puede conectarse un cliente de Docker a un demonio de Docker remoto. El cliente y el demonio se comunican mediante una API REST, a través de sockets UNIX o una interfaz de red. Otro cliente de Docker es Docker Compose, que le permite trabajar con aplicaciones que constan de un conjunto de contenedores.
+
+![arquitectura de Docker](https://docs.docker.com/engine/images/architecture.svg)
