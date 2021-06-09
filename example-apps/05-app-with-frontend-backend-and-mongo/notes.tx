@@ -1,0 +1,14 @@
+docker run --name mongodb --rm -d -p 27017:27017  mongo
+docker run --name mongodb --rm -d --network goals-net  mongo
+docker run --name mongodb -v data:/data/db --rm -d --network goals-net mongo
+docker run --name mongodb -v data:/data/db --rm -d --network goals-net -e MONGO_INITDB_ROOT_USERNAME=max -e MONGO_INITDB_ROOT_PASSWORD=secret mongo
+
+docker build -t goals-node .
+docker run --name goals-backend --rm -d -p 80:80 goals-node
+docker run --name goals-backend -v /home/memowii/Programming/courses/udemy/docker-&-kubernetes-the-practical-guide/section-5/multi-01-starting-setup/backend:/app/logs -v /app/node_modules -e MONGODB_USERNAME=max --rm -d -p 80:80 --network goals-net goals-node
+
+docker build -t goals-react .
+docker run --name goals-frontend --rm -d -p 3000:3000 -it goals-react
+docker run -v /home/memowii/Programming/courses/udemy/docker-&-kubernetes-the-practical-guide/section-5/multi-01-starting-setup/frontend/src:/app/src --name goals-frontend --rm -d -p 3000:3000 -it goals-react 
+
+docker network create goals
