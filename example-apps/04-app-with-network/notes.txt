@@ -1,0 +1,5 @@
+docker container inspect <container>
+docker network create favorites-net -> Crea un network.
+docker network create --driver bridge my-net
+docker run -d --name mongodb --network favorites-net mongo -> Corre un mongo container attacheado a la network pasada.
+docker run --name favorites --network favorites-net -d --rm -p 3000:3000 favorites-node

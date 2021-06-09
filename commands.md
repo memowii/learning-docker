@@ -38,7 +38,7 @@ docker volume create feedback-files -> Crea un volumen.
 docker volume isnpect
 docker volume rm
 
-docker container isnpaect <container>
+docker container inspect <container>
 docker network create favorites-net -> Crea un network.
 docker network create --driver bridge my-net
 docker run -d --name mongodb --network favorites-net mongo -> Corre un mongo container attacheado a la network pasada.
