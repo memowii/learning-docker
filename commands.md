@@ -1,30 +1,34 @@
 # Comandos
 
-### docker build
+## docker build
 
-#### Descripción
+### Descripción
 
 Build an image from a Dockerfile
 
-#### Uso
+### Uso
 
 ```bash
 docker build [OPTIONS] PATH | URL | -
 ```
 
-#### Opciones
+### Opciones
 
 | Nombre, shorthand | Default   | Descripción  |
 | ------------- |:--------------| ------------ |
 | --tag , -t    | Nombre y opcionalmente una etiqueta en el formato 'nombre: etiqueta' | $1600 |
 | --build-arg   | Establecer variables de tiempo de construcción |
 
-#### Ejemplos
+### Ejemplos
 ```bash
 docker build .
 docker build -t goals:latest .
 docker build -t feedback-node:dev --build-arg DEFAULT_PORT=8000
 ```
+<br>
+
+## docker run
+
 
 docker run -p 3000:3000 da7d1149e8a3 -> Crea y corre un contenedor con id da7d1149e8a3, y expone el puerto 3000.
 docker run -p 3000:3000 -d da7d1149e8a3 -> Crea y corre un contenedor con id da7d1149e8a3, y expone el puerto 3000, en detached mode.
