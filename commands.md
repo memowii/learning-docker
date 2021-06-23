@@ -191,34 +191,187 @@ docker stop node-app
 
 
 
+## docker container prune
 
-docker container prune -> Remueve todos los contenedores parados.
-docker rm <container> -> Remueve el container especificado.
-docker images -> Lista todas las imágenes.
-docker rmi <image_id> -> Remueve una imagen.
-docker image prune -> Remueve todas la imagenes no usadas. Si un container utiliza una imagen, esta no es removida.
-docker image prune -a -> Remueve todas la imagenes no usadas, así como las taggeadas. Si un container utiliza una imagen, esta no es removida.
-docker image inspect <image_id> -> Inspeciona una imagen.
-docker cp dummny/. <container>:/test -> Copia un archivo dentro de un container.
-docker cp <container>:/test dummny -> Copia un archivo del container a nuestro local.
-docker tag node-demo:latest academind/node-hello-world -> Renombra una imagen.
-docker push memowii/node-hello-world:tagname -> Manda una imagen a docker hub.
-docker login
-docker logout
-docker pull <image> -> Trae una imagen. La más nueva.
-docker volume ls -> Lista todos lo volumenes.
-docker volume rm VOL_NAME -> Remueve un volume.
-docker volume prune -> Remueve todos los volumes.
-docker volume create feedback-files -> Crea un volumen.
-docker volume inspect
-docker volume rm
-docker container inspect <container>
-docker network create favorites-net -> Crea un network.
-docker network create --driver bridge my-net
-docker exec -it <container> npm init
+### Descripción
 
-docker-compose up -> Start containers.
-docker-compose up -d
-docker-compose down -> Deletes containers and network.
-docker-compose down -v -> Deletes containers, network and volumes.
-docker-compose build -> Solo construye los containers.
+Retira todos los contenedores detenidos
+
+### Uso
+
+```bash
+ docker container prune [OPTIONS]
+```
+### Ejemplos
+```bash
+docker container prune
+```
+<br>
+
+
+
+## docker rm
+
+### Descripción
+
+Retira uno o más contenedores
+
+### Uso
+
+```bash
+ docker rm [OPTIONS] CONTAINER [CONTAINER...]
+```
+
+### Ejemplos
+```bash
+docker rm node
+```
+<br>
+
+
+
+## docker images
+
+### Descripción
+
+Lista de imágenes
+
+### Uso
+
+```bash
+docker images [OPTIONS] [REPOSITORY[:TAG]]
+```
+
+### Ejemplos
+```bash
+docker images
+```
+<br>
+
+
+
+## docker rmi
+
+### Descripción
+
+Eliminar una o más imágenes
+
+### Uso
+
+```bash
+docker rmi [OPTIONS] IMAGE [IMAGE...]
+```
+
+### Ejemplos
+```bash
+docker rmi node-image
+```
+<br>
+
+
+
+## docker image prune
+
+### Descripción
+
+Elimina imágenes no utilizadas
+
+### Uso
+
+```bash
+docker image prune [OPTIONS]
+```
+
+### Ejemplos
+```bash
+docker image prune
+```
+<br>
+
+
+
+## docker image inspect
+
+### Descripción
+
+Muestra información detallada sobre una o más imágenes.
+
+### Uso
+
+```bash
+docker image inspect [OPTIONS] IMAGE [IMAGE...]
+```
+
+### Ejemplos
+```bash
+docker image inspect node
+```
+<br>
+
+
+
+## docker cp
+
+### Descripción
+
+Copie archivos / carpetas entre un contenedor y el sistema de archivos local
+
+### Uso
+
+```bash
+docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-
+```
+
+### Ejemplos
+```bash
+docker cp dummny/. node:/test
+docker cp node:/test dummny
+```
+<br>
+
+
+
+## docker tag
+
+### Descripción
+
+Cree una etiqueta TARGET_IMAGE que haga referencia a SOURCE_IMAGE
+
+### Uso
+
+```bash
+docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+```
+
+### Ejemplos
+```bash
+docker tag node-demo:latest academind/node-hello-world
+```
+<br>
+
+
+
+## docker build
+
+### Descripción
+
+Construye una imagen desde un Dockerfile
+
+### Uso
+
+```bash
+docker build [OPTIONS] PATH | URL | -
+```
+
+### Opciones
+
+| Nombre, shorthand | Default   | Descripción  |
+| ------------- |:--------------| ------------ |
+| --tag , -t    |  | Nombre y opcionalmente una etiqueta en el formato 'nombre: etiqueta' |
+| --build-arg   |  | Establecer variables de tiempo de construcción |
+
+### Ejemplos
+```bash
+docker build .
+```
+<br>
